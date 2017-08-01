@@ -1,0 +1,102 @@
+#!/usr/bin/python
+import os
+pick = True
+# wlan = True
+print("")
+print("")
+print(" 888b.               8 w d88b ")
+print(" 8  .8 .d88 8d8b. .d88 w  wwP .d88 ")
+print(" 8wwP' 8  8 8P Y8 8  8 8    8 8  8 ")
+print(" 8     `Y88 8   8 `Y88 8 Y88P `Y88 ")
+print("")
+print(" Automatic Mac Changer Script")
+while pick:
+    print ("""
+    1.Install MAC changer
+    2.Check Currnet MAC and Interface
+    3.Random MAC of the same kind
+    4.Random MAC of any kind
+    5.Change To 00:11:22:33:44:55
+    6.Change To 1E:AT:DE:AD:BE:EF
+    7.Change To CA:FE:C0:FF:EE:00
+    8.Change To DE:AD:DE:AD:DE:AD
+    9.Change To 22:22:22:22:22:22
+    10.Change To AA:AA:AA:AA:AA:AA
+    11.Quit
+    """)
+    pick = raw_input("Pick an option: ")
+    if pick == "1":
+        os.system("sudo apt-get install macchanger")
+        print("\n MACchanger Installed!")
+        print("")
+
+    elif pick == "2":
+     wlan=raw_input("Type name of interface: ")
+     os.system("iwconfig " + wlan)
+     os.system("ifconfig " + wlan)
+
+    elif pick == "3":
+     wlan = raw_input("Type name of interface: ")
+     os.system("sudo ifconfig " + wlan + " down")
+     print("\n interface down")
+     os.system("sudo macchanger -a " + wlan)
+     print("\n mac changed")
+     os.system("sudo ifconfig " + wlan + " up")
+
+     print("\n Random MAC of the same kind picked")
+
+    elif pick == "4":
+     wlan=raw_input("Type name of interface: ")
+     os.system("sudo ifconfig " + wlan + " down")
+     os.system("sudo macchanger -A " + wlan)
+     os.system("sudo ifconfig " + wlan + " up")
+
+    elif pick == "5":
+     wlan = raw_input("Type name of interface: ")
+     os.system("sudo ifconfig " + wlan + " down")
+     os.system("sudo macchanger -m 00:11:22:33:44:55 " + wlan)
+     os.system("sudo ifconfig " + wlan + " up")
+     print("\n Your MAC is 00:11:22:33:44:55 ")
+
+    elif pick == "6":
+     wlan = raw_input("Type name of interface: ")
+     os.system("sudo ifconfig " + wlan + " down")
+     os.system("sudo macchanger -m 1E:AT:DE:AD:BE:EF " + wlan)
+     os.system("sudo ifconfig " + wlan + " up")
+     print("\n Your MAC is 1E:AT:DE:AD:BE:EF ")
+
+    elif pick == "7":
+     wlan = raw_input("Type name of interface: ")
+     os.system("sudo ifconfig " + wlan + " down")
+     os.system("sudo macchanger -m CA:FE:C0:FF:EE:00 " + wlan)
+     os.system("sudo ifconfig " + wlan + " up")
+     print("\n Your MAC is CA:FE:C0:FF:EE:00 ")
+
+    elif pick == "8":
+     wlan = raw_input("Type name of interface: ")
+     os.system("sudo ifconfig " + wlan + " down")
+     os.system("sudo macchanger -m DE:AD:DE:AD:DE:AD " + wlan)
+     os.system("sudo ifconfig " + wlan + " up")
+     print("\n Your MAC is DE:AD:DE:AD:DE:AD ")
+
+    elif pick == "9":
+     wlan = raw_input("Type name of interface: ")
+     os.system("sudo ifconfig " + wlan + " down")
+     os.system("sudo macchanger -m 22:22:22:22:22:22 " + wlan)
+     os.system("sudo ifconfig " + wlan + " up")
+     print("\n Your MAC is 22:22:22:22:22:22 ")
+
+    elif pick == "10":
+     wlan = raw_input("Type name of interface: ")
+     os.system("sudo ifconfig " + wlan + " down")
+     os.system("sudo macchanger -m AA:AA:AA:AA:AA:AA " + wlan)
+     os.system("sudo ifconfig " + wlan + " up")
+     print("\n Your MAC is AA:AA:AA:AA:AA:AA ")
+
+    elif pick == "11":
+     quit()
+
+
+
+    else:
+     print("\n Not Valid Choice Try again")
